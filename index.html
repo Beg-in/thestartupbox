@@ -5,45 +5,92 @@
     <title>TheStartupBox</title>
     <meta name="theme-color" content="lightseagreen">
     <link rel="stylesheet" href="https://cdn.rawgit.com/Beg-in/frow/1.4.2/css/frow.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,700,700i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet">
+    <script type="text/javascript" src="https://cdn.rawgit.com/Beg-in/letsGo/0.2.3/letsgo.js" async></script>
     <style>
         html, body {
             height: 100%;
             background-color: lightseagreen;
             font-family: Roboto;
+            color: #fff;
+        }
+        a, a:hover, a:focus, a:active {
+            color: #fff;
+            text-decoration: none;
+        }
+        li {
+            margin: 0 6px 5px;
+            font-weight: 700;
         }
         .title {
-            color: #fff;
             text-align: center;
             margin-top: 65px;
             font-size: 40px;
-            font-weight: 100;
+            font-weight: 700;
         }
-
+        .info {
+            font-weight: 400;
+        }
+        .home-to {
+            text-align: center;
+            width: 100%;
+            margin: 20px 0 5px;
+            font-size: 20px;
+            font-weight: 300;
+        }
+        .hidden-info.letsGo-hide-remove, .hidden-info.letsGo-hide-add {
+            transition: opacity 1s;
+            opacity: 0;
+        }
+        .hidden-info.letsGo-hide-remove-active, .hidden-info.letsGo-hide-add-activef {
+            opacity: 1;
+        }
         @keyframes cube-spin {
             0% {transform: rotate3d(0,0,0,0deg);}
+            1% {transform: rotate3d(0,0,0,0deg);}
             25% {transform: rotate3d(2.8,0.2,1,234deg);}
-            50% {transform: rotate3d(0.5,0.3,1,400deg);}
+            50% {transform: rotate3d(0,0.3,0,0deg);}
             75% {transform: rotate3d(1,0,0.4,670deg);}
-            100% {transform: rotate3d(0,0,0,720deg);}
+            100% {transform: rotate3d(0,0,0,0deg);}
         }
-        .scene {
+
+        #scene {
             perspective: 800px;
+            transition: transform 0.5s;
         }
-        .cube {
+        #scene:hover {
+            transform: scale(1.1);
+        }
+        #cube {
             position:relative;
             width: 150px;
             height: 150px;
             transform-style: preserve-3d;
-            /*transform: rotate3d(1,0,-0,60deg);*/
-            animation: cube-spin 30s ease infinite;
-
+            animation: cube-spin 40s ease infinite;
         }
         .side {
             position: absolute;
             width: 150px;
             height: 150px;
-            /*background-color: #fff;*/
+            border: 1px dashed #fff;
+            background-color: lightseagreen;
+
+        }
+        #scene.cube-white .side {
+            opacity: 0.5;
+            background-color: #f7f7f7;
+            border-color: lightseagreen;
+        }
+        #scene.cube-white-add .side, #scene.cube-white-remove .side {
+            transition: background-color 1s, border-color 1s, opacity 1s;
+        }
+        #scene.cube-white-add-active .side {
+            opacity: 0.5;
+            background-color: #f7f7f7;
+            border-color: lightseagreen;
+        }
+        #scene.cube-white-remove-active .side {
+            opacity: 1;
             border: 1px dashed #fff;
             background-color: lightseagreen;
         }
@@ -68,8 +115,8 @@
     </style>
     <body>
         <div class="frow centered-column">
-            <div class="scene">
-                <div class="cube">
+            <div id="scene">
+                <div id="cube" onclick="letsGo('#scene', 'toggle', '.cube-white');letsGo('.hidden-info', 'toggle');">
                     <div class="side back"></div>
                     <div class="side left"></div>
                     <div class="side right"></div>
@@ -80,6 +127,21 @@
             </div>
             <div class="title">
                 TheStartupBox
+            </div>
+            <div class="info">
+                <a href="https://goo.gl/maps/VrDA5irxu2t">501 N Main St. #2, Bloomington</a>
+            </div>
+            <div style="height: 80px;">
+                <div class="hidden-info letsGo-hide">
+                    <div class="home-to">Featuring</div>
+                    <ul class="frow">
+                        <li><a href="http://qikpix.io">QikPix</a></li>
+                        <li><a href="http://presto.media">Presto Media</a></li>
+                        <li><a href="http://bitaml.com">BitAML</a></li>
+                        <li><a href="http://vrleague.org">VR League</a></li>
+                        <li><a href="http://beg.in">Beg.in</a></li>
+                    </ul>
+                </div>
             </div>
         </div>
     </body>
