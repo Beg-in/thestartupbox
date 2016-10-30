@@ -5,7 +5,7 @@
     <title>TheStartupBox</title>
     <meta name="theme-color" content="lightseagreen">
     <link rel="stylesheet" href="https://cdn.rawgit.com/Beg-in/frow/1.4.4/css/frow.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400" rel="stylesheet">
     <script type="text/javascript" src="https://cdn.rawgit.com/Beg-in/letsGo/0.2.3/letsgo.js" async></script>
     <style>
         html, body {
@@ -20,23 +20,27 @@
         }
         li {
             margin: 0 6px 5px;
-            font-weight: 700;
+            font-weight: 400;
         }
         .title {
             text-align: center;
             margin-top: 65px;
             font-size: 40px;
-            font-weight: 700;
+            font-weight: 100;
+        }
+        .info-contain {
+            height: 160px;
         }
         .info {
             font-weight: 400;
+            text-align: center;
         }
         .home-to {
             text-align: center;
             width: 100%;
             margin: 20px 0 5px;
             font-size: 20px;
-            font-weight: 300;
+            font-weight: 100;
         }
         .hidden-info.letsGo-hide-remove, .hidden-info.letsGo-hide-add {
             transition: opacity 1s;
@@ -46,12 +50,13 @@
             opacity: 1;
         }
         @keyframes cube-spin {
-            0% {transform: rotate3d(0,0,0,0deg);}
-            1% {transform: rotate3d(0,0,0,0deg);}
-            25% {transform: rotate3d(2.8,0.2,1,234deg);}
-            50% {transform: rotate3d(0,0.3,0,0deg);}
-            75% {transform: rotate3d(1,0,0.4,670deg);}
-            100% {transform: rotate3d(0,0,0,0deg);}
+            0% { transform: rotate3d(0, 0, 0, 0deg); }
+            5% { transform: rotate3d(0, 1, 1, 300deg); }
+            10% { transform: rotate3d(0, .3, 1, 90deg); }
+            25% { transform: rotate3d(.75, .25, .10, 230deg); }
+            50% { transform: rotate3d(.75, .25, .10, -390deg); }
+            75% { transform: rotate3d(.1, 3, 2, 600deg); }
+            100% { transform: rotate3d(0, 0, 0, 0deg); }
         }
 
         #scene {
@@ -66,7 +71,9 @@
             width: 150px;
             height: 150px;
             transform-style: preserve-3d;
-            animation: cube-spin 40s ease infinite;
+            transform: rotate3d(0,0,0,0deg);
+            animation: cube-spin 60s ease infinite;
+
         }
         #cube:focus, #cube:active {
             border: none;
@@ -132,11 +139,9 @@
             <div class="title">
                 TheStartupBox
             </div>
-            <div class="info">
-                <a href="https://goo.gl/maps/VrDA5irxu2t">501 N Main St #2, Bloomington, IL</a>
-            </div>
-            <div style="height: 80px;">
-                <div class="hidden-info letsGo-hide">
+            <div class="info-contain">
+                <div class="info hidden-info letsGo-hide">
+                    <a href="https://goo.gl/maps/VrDA5irxu2t">501 N Main St #2, Bloomington, IL</a>
                     <div class="home-to">Featuring</div>
                     <ul class="frow">
                         <li><a href="http://qikpix.io">QikPix</a></li>
@@ -144,6 +149,26 @@
                         <li><a href="http://bitaml.com">BitAML</a></li>
                         <li><a href="http://vrleague.org">VR League</a></li>
                         <li><a href="http://beg.in">Beg.in</a></li>
+                    </ul>
+                    <div class="home-to">Contact</div>
+                    <ul class="frow">
+                        <li>
+                            <script type="text/javascript">
+                                //<![CDATA[
+                                <!--
+                                var x="function f(x){var i,o=\"\",ol=x.length,l=ol;while(x.charCodeAt(l/13)!" +
+                                "=43){try{x+=x;l+=l;}catch(e){}}for(i=l-1;i>=0;i--){o+=x.charAt(i);}return o" +
+                                ".substr(0,ol);}f(\")211,\\\"aic~tk5|n\\\"\\\\;,!?b3%+8227%71$(K~RZUS700\\\\" +
+                                "230\\\\k420\\\\it\\\\V^EY[610\\\\710\\\\pXAJGU010\\\\]KARTTm771\\\\io~rmXxp" +
+                                "{})}e|fo`.W7omun%e? )n220\\\\030\\\\010\\\\220\\\\010\\\\610\\\\V300\\\\030" +
+                                "\\\\020\\\\130\\\\600\\\\120\\\\630\\\\420\\\\\\\"(f};o nruter};))++y(^)i(t" +
+                                "AedoCrahc.x(edoCrahCmorf.gnirtS=+o;721=%y;i=+y)211==i(fi{)++i;l<i;0=i(rof;h" +
+                                "tgnel.x=l,\\\"\\\"=o,i rav{)y,x(f noitcnuf\")"                               ;
+                                while(x=eval(x));
+                                //-->
+                                //]]>
+                            </script>
+                        </li>
                     </ul>
                 </div>
             </div>
