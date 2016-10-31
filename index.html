@@ -1,143 +1,155 @@
 <!DOCTYPE HTML>
 <html>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <title>TheStartupBox</title>
-    <meta name="theme-color" content="lightseagreen">
-    <link rel="stylesheet" href="https://cdn.rawgit.com/Beg-in/frow/1.4.4/css/frow.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400" rel="stylesheet">
-    <script type="text/javascript" src="https://cdn.rawgit.com/Beg-in/letsGo/0.2.3/letsgo.js" async></script>
-    <style>
-        html, body {
-            height: 100%;
-            background-color: lightseagreen;
-            font-family: Roboto;
-            color: #fff;
-        }
-        a, a:hover, a:focus, a:active {
-            color: #fff;
-            text-decoration: none;
-        }
-        li {
-            margin: 0 6px 5px;
-            font-weight: 400;
-        }
-        button:not(.reset), button:not(.reset):hover, button:not(.reset):active, button:not(.reset):focus {
-            background-color: lightseagreen;
-            border: 2px solid #fff;
-        }
-        .title {
-            text-align: center;
-            margin-top: 65px;
-            font-size: 40px;
-            font-weight: 100;
-        }
-        .info-contain {
-            height: 160px;
-            position: relative;
-        }
-        .info {
-            font-weight: 400;
-            text-align: center;
-        }
-        button.info-button {
-            text-align: center;
-            width: 70px;
-            margin-left: -35px;
-            top: 20px;
-            left: 50%;
-            font-weight: 100;
-            position: absolute;
-        }
-        .home-to {
-            text-align: center;
-            width: 100%;
-            margin: 20px 0 5px;
-            font-size: 20px;
-            font-weight: 100;
-        }
-        .hidden-info.letsGo-hide-remove, .hidden-info.letsGo-hide-add {
-            transition: opacity 1s;
-            opacity: 0;
-        }
-        .hidden-info.letsGo-hide-remove-active, .hidden-info.letsGo-hide-add-activef {
-            opacity: 1;
-        }
-        @keyframes cube-spin {
-            0% { transform: rotate3d(0, 0, 0, 0deg); }
-            5% { transform: rotate3d(0, 1, 1, 300deg); }
-            10% { transform: rotate3d(0, .3, 1, 90deg); }
-            25% { transform: rotate3d(.75, .25, .10, 230deg); }
-            50% { transform: rotate3d(.75, .25, .10, -390deg); }
-            75% { transform: rotate3d(.1, 3, 2, 600deg); }
-            100% { transform: rotate3d(0, 0, 0, 0deg); }
-        }
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <title>TheStartupBox</title>
+        <meta name="theme-color" content="lightseagreen">
+        <link rel="stylesheet" href="https://cdn.rawgit.com/Beg-in/frow/1.4.4/css/frow.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400" rel="stylesheet">
+        <script type="text/javascript" src="https://cdn.rawgit.com/Beg-in/letsGo/0.2.3/letsgo.js" async></script>
+        <style>
+            html, body {
+                height: 100%;
+                background-color: lightseagreen;
+                font-family: Roboto;
+                color: #fff;
+            }
+            a, a:hover, a:focus, a:active {
+                color: #fff;
+                text-decoration: none;
+            }
+            li {
+                margin: 0 6px 5px;
+                font-weight: 400;
+            }
+            button:not(.reset), button:not(.reset):hover, button:not(.reset):active, button:not(.reset):focus {
+                background-color: lightseagreen;
+                border: 2px solid #fff;
+            }
+            .title {
+                text-align: center;
+                margin-top: 65px;
+                font-size: 40px;
+                font-weight: 100;
+            }
+            .info-contain {
+                height: 160px;
+                position: relative;
+            }
+            .info {
+                font-weight: 400;
+                text-align: center;
+            }
+            button.info-button {
+                text-align: center;
+                width: 70px;
+                margin-left: -35px;
+                top: 20px;
+                left: 50%;
+                font-weight: 100;
+                position: absolute;
+            }
+            .home-to {
+                text-align: center;
+                width: 100%;
+                margin: 20px 0 5px;
+                font-size: 20px;
+                font-weight: 100;
+            }
+            .hidden-info.letsGo-hide-remove, .hidden-info.letsGo-hide-add {
+                transition: opacity 1s;
+                opacity: 0;
+            }
+            .hidden-info.letsGo-hide-remove-active, .hidden-info.letsGo-hide-add-activef {
+                opacity: 1;
+            }
+            @keyframes cube-spin {
+                0% { transform: rotate3d(0, 0, 0, 0deg); }
+                5% { transform: rotate3d(0, 1, 1, 300deg); }
+                10% { transform: rotate3d(0, .3, 1, 90deg); }
+                25% { transform: rotate3d(.75, .25, .10, 230deg); }
+                50% { transform: rotate3d(.75, .25, .10, -390deg); }
+                75% { transform: rotate3d(.1, 3, 2, 600deg); }
+                100% { transform: rotate3d(0, 0, 0, 0deg); }
+            }
 
-        #scene {
-            perspective: 800px;
-            transition: transform 0.5s;
-        }
-        #scene:hover {
-            transform: scale(1.1);
-        }
-        #cube {
-            position:relative;
-            width: 150px;
-            height: 150px;
-            transform-style: preserve-3d;
-            transform: rotate3d(0,0,0,0deg);
-            animation: cube-spin 60s ease infinite;
+            #scene {
+                perspective: 800px;
+                transition: transform 0.5s;
+            }
+            #scene:hover {
+                transform: scale(1.1);
+            }
+            #cube {
+                position:relative;
+                width: 150px;
+                height: 150px;
+                transform-style: preserve-3d;
+                transform: rotate3d(0,0,0,0deg);
+                animation: cube-spin 60s ease infinite;
 
-        }
-        #cube:focus, #cube:active {
-            border: none;
-            outline: none;
-        }
-        .side {
-            position: absolute;
-            width: 150px;
-            height: 150px;
-            border: 1px dashed #fff;
-            background-color: lightseagreen;
+            }
+            #cube:focus, #cube:active {
+                border: none;
+                outline: none;
+            }
+            .side {
+                position: absolute;
+                width: 150px;
+                height: 150px;
+                border: 1px dashed #fff;
+                background-color: lightseagreen;
 
-        }
-        #scene.cube-white .side {
-            opacity: 0.5;
-            background-color: #f7f7f7;
-            border-color: lightseagreen;
-        }
-        #scene.cube-white-add .side, #scene.cube-white-remove .side {
-            transition: background-color 1s, border-color 1s, opacity 1s;
-        }
-        #scene.cube-white-add-active .side {
-            opacity: 0.5;
-            background-color: #f7f7f7;
-            border-color: lightseagreen;
-        }
-        #scene.cube-white-remove-active .side {
-            opacity: 1;
-            border: 1px dashed #fff;
-            background-color: lightseagreen;
-        }
-        .back {
-            transform: translateZ(-75px);
-        }
-        .left {
-            transform: translateX(-75px) rotateY(90deg);
-        }
-        .right {
-            transform: translateX(75px) rotateY(90deg);
-        }
-        .top {
-            transform: translateY(-75px) rotateX(90deg);
-        }
-        .bottom {
-            transform: translateY(75px) rotateX(90deg);
-        }
-        .front {
-            transform: translateZ(75px);
-        }
-    </style>
+            }
+            #scene.cube-white .side {
+                opacity: 0.5;
+                background-color: #f7f7f7;
+                border-color: lightseagreen;
+            }
+            #scene.cube-white-add .side, #scene.cube-white-remove .side {
+                transition: background-color 1s, border-color 1s, opacity 1s;
+            }
+            #scene.cube-white-add-active .side {
+                opacity: 0.5;
+                background-color: #f7f7f7;
+                border-color: lightseagreen;
+            }
+            #scene.cube-white-remove-active .side {
+                opacity: 1;
+                border: 1px dashed #fff;
+                background-color: lightseagreen;
+            }
+            .back {
+                transform: translateZ(-75px);
+            }
+            .left {
+                transform: translateX(-75px) rotateY(90deg);
+            }
+            .right {
+                transform: translateX(75px) rotateY(90deg);
+            }
+            .top {
+                transform: translateY(-75px) rotateX(90deg);
+            }
+            .bottom {
+                transform: translateY(75px) rotateX(90deg);
+            }
+            .front {
+                transform: translateZ(75px);
+            }
+        </style>
+        <script>
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+          ga('create', 'UA-86661411-1', 'auto');
+          ga('send', 'pageview');
+
+        </script>
+    </head>
     <body>
         <div class="frow centered-column">
             <div id="scene">
