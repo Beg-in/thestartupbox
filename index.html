@@ -22,6 +22,10 @@
             margin: 0 6px 5px;
             font-weight: 400;
         }
+        button:not(.reset), button:not(.reset):hover, button:not(.reset):active, button:not(.reset):focus {
+            background-color: lightseagreen;
+            border: 2px solid #fff;
+        }
         .title {
             text-align: center;
             margin-top: 65px;
@@ -30,10 +34,20 @@
         }
         .info-contain {
             height: 160px;
+            position: relative;
         }
         .info {
             font-weight: 400;
             text-align: center;
+        }
+        button.info-button {
+            text-align: center;
+            width: 70px;
+            margin-left: -35px;
+            top: 20px;
+            left: 50%;
+            font-weight: 100;
+            position: absolute;
         }
         .home-to {
             text-align: center;
@@ -139,9 +153,13 @@
             <div class="title" onclick="letsGo('#scene', 'toggle', '.cube-white');letsGo('.hidden-info', 'toggle');">
                 TheStartupBox
             </div>
+            <a href="https://goo.gl/maps/VrDA5irxu2t">501 N Main St #2, Bloomington, IL</a>
             <div class="info-contain">
+                    <button class="info-button hidden-info" onclick="letsGo('#scene', 'toggle', '.cube-white');letsGo('.hidden-info', 'toggle');">
+                        Info
+                    </button>
                 <div class="info hidden-info letsGo-hide">
-                    <a href="https://goo.gl/maps/VrDA5irxu2t">501 N Main St #2, Bloomington, IL</a>
+
                     <div class="home-to">Featuring</div>
                     <ul class="frow">
                         <li><a href="http://qikpix.io">QikPix</a></li>
